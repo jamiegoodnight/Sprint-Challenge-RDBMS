@@ -29,10 +29,7 @@ exports.up = function(knex, Promise) {
         .string("description", 128)
         .notNullable()
         .unique();
-      tbl
-        .string("notes", 128)
-        .notNullable()
-        .unique();
+      tbl.string("notes", 128).unique();
       tbl
         .boolean("complete")
         .notNullable()
