@@ -7,7 +7,14 @@ module.exports = {
 };
 
 function getProjectActions(id) {
-  return db("actions").where({ project_id: id });
+  return db("actions")
+    .select({
+      id: "actions.id",
+      description: "actions.description",
+      notes: "actions.notes",
+      complete: "actions.complete"
+    })
+    .where({ project_id: id });
 }
 
 function getProject(id) {
