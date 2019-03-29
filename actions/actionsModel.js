@@ -4,10 +4,16 @@ module.exports = {
   addAction
 };
 
+function getActionById(id) {
+  return db("actions")
+    .where({ id })
+    .first();
+}
+
 function addAction(action) {
   return db("actions")
     .insert(action)
     .then(ids => {
-      return getDishById(ids[0]);
+      return getActionById(ids[0]);
     });
 }
