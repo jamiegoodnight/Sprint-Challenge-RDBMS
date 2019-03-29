@@ -1,3 +1,19 @@
+## Explain the difference between RDBMS and SQL.
+
+<!-- ## RDBMS—Rational Database Management System—are the systems that manage our databases, the SQL language is what we use to communicate with those systems. -->
+
+## Why do tables need a primary key?
+
+<!-- ## For organization and the ability to functionally and efficiently establish relationships between tables in our databases. -->
+
+## What is the name given to a table column that references the primary key on another table.
+
+<!-- ## This is called a foreign key -->
+
+## What do we need in order to have a many to many relationship between two tables.
+
+<!-- ## We need three tables. The third table acts as a bridge or aggregator between the other two tables by accepting foreign keys. -->
+
 # Sprint Challenge: RDBMS and SQL - Projects & Actions
 
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project.

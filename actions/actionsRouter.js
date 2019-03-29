@@ -4,6 +4,8 @@ const db = require("./actionsModel");
 
 const router = express.Router();
 
+// POST a new action ----------
+
 router.post("/", (req, res) => {
   const newAction = req.body;
 
