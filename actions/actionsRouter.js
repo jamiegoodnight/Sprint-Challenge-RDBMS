@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/", (req, res) => {
   const newAction = req.body;
 
-  if (newAction.name && newAction.description) {
+  if (newAction.description) {
     db.addAction(newAction)
       .then(action => {
         res.status(201).json(action);
@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
       });
   } else {
     res.status(400).json({
-      message: "Please provide a name and description for your action!"
+      message: "Please provide a description for your action!"
     });
   }
 });
