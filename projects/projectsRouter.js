@@ -34,10 +34,11 @@ router.get("/:id", (req, res) => {
   db.getProject(id)
     .then(project => {
       if (project) {
-        const projectAndActions = { ...project };
-        db.getProjectActions(req.params.id).then(actions => {
-          projectAndActions.actions = actions;
-          res.status(200).json(projectAndActions);
+        const projAct = { ...project };
+
+        db.getProjectActions(id).then(actions => {
+          projAct.actions = actions;
+          res.status(200).json(projAct);
         });
       } else {
         res.status(404).json({
