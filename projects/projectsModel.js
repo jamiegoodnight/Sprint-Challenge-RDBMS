@@ -14,13 +14,15 @@ function getProjectActions(id) {
       notes: "actions.notes",
       complete: "actions.complete"
     })
-    .where({ project_id: id });
+    .where({ project_id: id })
+    .then(actions => actions.map(obj => accomodateKnexsShortcomings(obj)));
 }
 
 function getProject(id) {
   return db("projects")
     .where({ id })
-    .first();
+    .first()
+    .then(obj => accomodateKnexsShortcomings(obj));
 }
 
 function addProject(project) {
@@ -28,5 +30,13 @@ function addProject(project) {
     .insert(project)
     .then(ids => {
       return getProject(ids[0]);
-    });
+    })
+    .then(obj => accomodateKnexsShortcomings(obj));
+}
+
+function accomodateKnexsShortcomings(obj) {
+  return {
+    ...obj,
+    complete: obj.complete ? true : false
+  };
 }
